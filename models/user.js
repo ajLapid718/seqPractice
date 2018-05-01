@@ -34,4 +34,9 @@ const User = db.define('user', {
   }
 });
 
+User.prototype.haveBirthday = function () {
+  let newAge = this.age + 1;
+  return User.update({age: newAge}, {where: {first: "DB"}});
+}
+
 module.exports = User;
