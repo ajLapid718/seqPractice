@@ -36,7 +36,11 @@ const User = db.define('user', {
 
 User.prototype.haveBirthday = function () {
   let newAge = this.age + 1;
-  return User.update({age: newAge}, {where: {first: "DB"}});
+  let action = User.update({age: newAge}, {where: {id: this.id}, returning: true});
+  return action.then(function(updatedUser) {
+    let targetUserObj = updatedUser[1][0].dataValues;
+    return targetUserObj;
+  });
 }
 
 module.exports = User;
