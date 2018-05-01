@@ -41,6 +41,6 @@ User.prototype.haveBirthday = function () {
     let targetUserObj = updatedUser[1][0].dataValues;
     return targetUserObj;
   });
-}
+};
 
 module.exports = User;
