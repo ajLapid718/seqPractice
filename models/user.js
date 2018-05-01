@@ -11,7 +11,10 @@ const User = db.define('user', {
   },
 
   age: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    validate: {
+      min: 18
+    }
   },
 
   email: {
