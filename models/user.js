@@ -27,7 +27,11 @@ const User = db.define('user', {
   }
 
 }, {
-// ...AND HERE
+  getterMethods: {
+    fullName: function() {
+      return this.getDataValue('first') + ' ' + this.getDataValue('last');
+    }
+  }
 });
 
 module.exports = User;
